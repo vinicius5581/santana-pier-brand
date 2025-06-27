@@ -1,0 +1,80 @@
+body {
+    margin: 0;
+    padding: 50px;
+    background: #f8f8f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Oswald', sans-serif;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.santana-pier-logo {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.semicircle-top {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border: 3px solid #8B4B4B;
+    border-radius: 50%;
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+    top: 0;
+}
+
+.semicircle-bottom {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border: 3px solid #8B4B4B;
+    border-radius: 50%;
+    clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+    top: 0;
+}
+
+.center-line {
+    position: absolute;
+    width: 120px;
+    height: 3px;
+    background-color: #8B4B4B;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.main-text {
+    font-family: 'Oswald', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: #2c2c2c;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+.tagline {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: 300;
+    color: #666;
+    letter-spacing: 3px;
+    margin: 0;
+    text-transform: uppercase;
+}
