@@ -74,7 +74,7 @@ function animateSunset() {
 }
 
 let currentSection = 0;
-const totalSections = 5;
+const totalSections = 7;
 let isScrolling = false;
 
 function slideToSection(sectionIndex) {

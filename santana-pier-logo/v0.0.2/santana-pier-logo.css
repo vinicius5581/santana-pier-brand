@@ -324,6 +324,56 @@ section {
     color: #2c2c2c !important;
 }
 
+.logo-sunset-section {
+    background: #fffdf5;
+    padding: 50px;
+}
+
+.sunset-logo .semicircle-top {
+    border-color: #FF8C00 !important;
+    background-color: transparent !important;
+}
+
+.sunset-logo .semicircle-bottom {
+    border-color: #FFB347 !important;
+    background-color: transparent !important;
+}
+
+.sunset-logo .center-line {
+    background-color: #4682B4 !important;
+}
+
+.sunset-text {
+    color: #2c2c2c !important;
+}
+
+.logo-filled-section {
+    background: #fffdf5;
+    padding: 50px;
+}
+
+.filled-logo .semicircle-top {
+    border-color: #000000 !important;
+    background: linear-gradient(180deg, #FF8C00 0%, #FFD700 100%) !important;
+}
+
+.filled-logo .semicircle-bottom {
+    border-color: #000000 !important;
+    background-color: #4682B4 !important;
+}
+
+.filled-logo .center-line {
+    background-color: #000000 !important;
+    height: 3px !important;
+    z-index: 10;
+    top: calc(50% + 1.5px);
+    transform: translate(-50%, -50%);
+}
+
+.filled-text {
+    color: #2c2c2c !important;
+}
+
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
     .logo-container {
