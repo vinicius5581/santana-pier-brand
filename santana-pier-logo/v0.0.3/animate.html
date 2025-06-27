@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Santana Pier Logo - Animated</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 50px;
+            background: #fffdf5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Oswald', sans-serif;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .santana-pier-logo {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .semicircle-top {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 3px solid #8B4B4B;
+            border-radius: 50%;
+            clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+            top: 0;
+        }
+
+        .semicircle-bottom {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 3px solid #8B4B4B;
+            border-radius: 50%;
+            clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+            top: 0;
+        }
+
+        .center-line {
+            position: absolute;
+            width: 120px;
+            height: 3px;
+            background-color: #8B4B4B;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .main-text {
+            font-family: 'Oswald', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #2c2c2c;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        .tagline {
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            font-weight: 300;
+            color: #666;
+            letter-spacing: 3px;
+            margin: 0;
+            text-transform: uppercase;
+            text-align: center;
+        }
+
+        .big-letter {
+            font-size: 1.2em;
+            font-weight: 800;
+        }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .logo-container {
+                flex-direction: column;
+                gap: 30px;
+                text-align: center;
+            }
+            
+            .main-text {
+                font-size: 32px;
+                letter-spacing: 1px;
+                white-space: nowrap;
+            }
+            
+            .tagline {
+                font-size: 10px;
+                letter-spacing: 2px;
+            }
+            
+            .santana-pier-logo {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .semicircle-top,
+            .semicircle-bottom {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .center-line {
+                width: 100px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-text {
+                font-size: 24px;
+            }
+            
+            .santana-pier-logo {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .semicircle-top,
+            .semicircle-bottom {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .center-line {
+                width: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <div class="santana-pier-logo">
+            <div class="semicircle-top"></div>
+            <div class="semicircle-bottom"></div>
+            <div class="center-line"></div>
+        </div>
+        <div class="logo-text">
+            <h1 class="main-text"><span class="big-letter">S</span>ANTANA<span class="big-letter">P</span>IER</h1>
+            <p class="tagline">FIND YOUR TREASURE</p>
+        </div>
+    </div>
+    
+    <script>
+        const logo = document.querySelector('.santana-pier-logo');
+        const semicircleTop = document.querySelector('.semicircle-top');
+        const semicircleBottom = document.querySelector('.semicircle-bottom');
+        const centerLine = document.querySelector('.center-line');
+
+        function adjustColorForReflection(color) {
+            // Convert hex to RGB, darken and add blue tint for ocean reflection
+            const hex = color.replace('#', '');
+            const r = parseInt(hex.substr(0, 2), 16);
+            const g = parseInt(hex.substr(2, 2), 16);
+            const b = parseInt(hex.substr(4, 2), 16);
+            
+            // Darken the color and add blue tint for ocean reflection
+            const reflectedR = Math.floor(r * 0.6);
+            const reflectedG = Math.floor(g * 0.7);
+            const reflectedB = Math.floor(Math.min(255, b * 0.8 + 30)); // Add blue tint
+            
+            return `rgb(${reflectedR}, ${reflectedG}, ${reflectedB})`;
+        }
+
+        function animateSunset() {
+            const duration = 4000;
+            const startTime = Date.now();
+            
+            function animate() {
+                const elapsed = Date.now() - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                
+                // Sunset color progression
+                const sunsetColors = [
+                    '#FFD700', // Gold
+                    '#FF8C00', // Dark orange
+                    '#FF6347', // Tomato
+                    '#DC143C', // Crimson
+                    '#8B008B', // Dark magenta
+                    '#4B0082'  // Indigo
+                ];
+                
+                const colorIndex = Math.floor(progress * (sunsetColors.length - 1));
+                const nextColorIndex = Math.min(colorIndex + 1, sunsetColors.length - 1);
+                const colorProgress = (progress * (sunsetColors.length - 1)) % 1;
+                
+                const currentColor = sunsetColors[colorIndex];
+                const nextColor = sunsetColors[nextColorIndex];
+                
+                // Keep background constant
+                document.body.style.background = '#fffdf5';
+                
+                // Animate the logo elements
+                // Top semicircle represents sun/moon
+                semicircleTop.style.borderColor = currentColor;
+                
+                // Bottom semicircle represents reflection on ocean (darker, more muted)
+                const reflectionColor = adjustColorForReflection(currentColor);
+                semicircleBottom.style.borderColor = reflectionColor;
+                
+                centerLine.style.backgroundColor = currentColor;
+                
+                // Add glow effect
+                const glowSize = 10 + 20 * Math.sin(progress * Math.PI * 4);
+                logo.style.filter = `drop-shadow(0 0 ${glowSize}px ${currentColor})`;
+                
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    // Restart animation
+                    setTimeout(() => {
+                        animateSunset();
+                    }, 1000);
+                }
+            }
+            
+            animate();
+        }
+
+        // Start animation when page loads
+        window.addEventListener('load', animateSunset);
+    </script>
+</body>
+</html>
