@@ -323,3 +323,132 @@ section {
 .dark-text {
     color: #2c2c2c !important;
 }
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .logo-container {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .main-text {
+        font-size: 32px;
+        letter-spacing: 1px;
+        white-space: nowrap;
+    }
+    
+    .tagline {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+    
+    .santana-pier-logo {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .semicircle-top,
+    .semicircle-bottom {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .center-line {
+        width: 100px;
+    }
+    
+    .palette-container {
+        padding: 0 20px;
+        max-width: 100%;
+    }
+    
+    .palette-title {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+    
+    .color-squares {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 15px;
+        padding: 0 10px;
+    }
+    
+    .color-square {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .typography-container {
+        padding: 0 20px;
+        max-width: 100%;
+    }
+    
+    .typography-title {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+    
+    .font-sample {
+        padding: 20px;
+    }
+    
+    .font-name {
+        font-size: 20px;
+    }
+    
+    .sample-text {
+        font-size: 16px;
+    }
+    
+    .font-weight {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .weight-label {
+        min-width: auto;
+    }
+    
+    .page-navigation {
+        right: 15px;
+        gap: 12px;
+    }
+    
+    .nav-dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-text {
+        font-size: 24px;
+    }
+    
+    .santana-pier-logo {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .semicircle-top,
+    .semicircle-bottom {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .center-line {
+        width: 80px;
+    }
+    
+    .color-squares {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        justify-items: center;
+    }
+    
+    .sample-text {
+        font-size: 14px;
+    }
+}
